@@ -9,6 +9,19 @@ O projeto foi desenvolvido seguindo o padrão arquitetural MVC (Model-View-Contr
 - **`model`**: Contém a classe de domínio principal (`Chamado`) e as enumerações de regras de negócio (`Status` e `Prioridade`).
 - **`controller`**: Contém o `ChamadoController`, responsável por expor os endpoints HTTP, isolando o roteamento da aplicação.
 
+## Endpoints da API (Guia de Uso)
+
+Abaixo estão documentadas as requisições disponíveis para testar a API. O projeto inclui um arquivo `testes.http` na raiz, configurado para uso com a extensão **REST Client** no VS Code/Codespaces.
+
+- **`GET /chamados`**: Retorna a lista completa de todos os chamados registrados.
+- **`GET /chamados/{id}`**: Busca um chamado específico pelo seu ID (UUID).
+- **`GET /chamados/setor?nome={setor}`**: Filtra a lista de chamados por um setor específico (ex: Financeiro, TI).
+- **`GET /chamados/prioridade?nivel={nivel}`**: Filtra os chamados pelo nível de prioridade (`ALTA`, `MEDIA`, `BAIXA`).
+- **`GET /chamados/busca?texto={palavra}`**: Realiza uma busca textual no título dos chamados.
+- **`GET /chamados/criticos`**: Retorna apenas os chamados com prioridade `ALTA` e que ainda não possuem o status `RESOLVIDO`.
+- **`GET /chamados/resumo`**: Retorna um balanço quantitativo com o total de chamados agrupados por status (ABERTO, EM_ANDAMENTO, RESOLVIDO).
+- **`POST /chamados`**: Rota para cadastrar um novo chamado. Espera receber um corpo no formato JSON com os atributos: `titulo`, `solicitante`, `setor`, `prioridade` e `status`. Retorna Status 201 (Created) e o objeto gerado com o novo ID.
+
 ## Análise Técnica
 
 **1. Como o Spring Boot recebe e processa requisições HTTP:**
