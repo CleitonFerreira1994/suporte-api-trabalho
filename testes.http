@@ -1,0 +1,32 @@
+### 1. Listar todos os chamados
+GET https://zany-cod-q79jrq5rj49phxrpj-8080.app.github.dev/chamados
+
+### 2. Buscar chamado por ID (Copie um ID gerado no teste 1 e substitua abaixo)
+GET https://zany-cod-q79jrq5rj49phxrpj-8080.app.github.dev/chamados/INSERIR_ID_CHAMADO
+
+### 3. Filtrar chamados por setor
+GET https://zany-cod-q79jrq5rj49phxrpj-8080.app.github.dev/chamados/setor?nome=Financeiro
+
+### 4. Filtrar chamados por prioridade
+GET https://zany-cod-q79jrq5rj49phxrpj-8080.app.github.dev/chamados/prioridade?nivel=ALTA
+
+### 5. Buscar chamados por texto no título
+GET https://zany-cod-q79jrq5rj49phxrpj-8080.app.github.dev/chamados/busca?texto=senha
+
+### 6. Listar chamados críticos (Prioridade ALTA e status diferente de RESOLVIDO)
+GET https://zany-cod-q79jrq5rj49phxrpj-8080.app.github.dev/chamados/criticos
+
+### 7. Resumo dos chamados por status
+GET https://zany-cod-q79jrq5rj49phxrpj-8080.app.github.dev/chamados/resumo
+
+### 8. Cadastrar um novo chamado
+POST https://zany-cod-q79jrq5rj49phxrpj-8080.app.github.dev/chamados
+Content-Type: application/json
+
+{
+  "titulo": "Configuração de rede e permissões AD",
+  "solicitante": "Cleiton",
+  "setor": "Suporte TI",
+  "prioridade": "ALTA",
+  "status": "ABERTO"
+}
